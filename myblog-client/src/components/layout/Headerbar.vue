@@ -13,7 +13,7 @@
                 </Menu-item>
                 <Menu-item name="3">
                     <Icon type="ios-analytics"></Icon>
-                    <router-link to='/log' active-class='active'><span @click="selectedSubmenu='Submenu3'">日志</span></router-link>
+                    <router-link to='/upload' active-class='active'><span @click="selectedSubmenu='Submenu3'">上传</span></router-link>
                 </Menu-item>
                 <Menu-item name="4">
                     <Icon type="ios-paper"></Icon>

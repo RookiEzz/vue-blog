@@ -1,25 +1,25 @@
 const mongoose = require('mongoose');
-const User = require('../models/user.model')
+const Comment = require('../models/comment.model')
 
 //新建用户
 exports.create = function(req, res, next){
-    const user = new User(req.body);
+    const comment = new Comment(req.body);
     // res.json(user);
-    user.save().then(data => {
+    comment.save().then(data => {
         res.json(data)
     })
 };
 
 //更新用户数据
 exports.update = function (req, res, next) {
-  const user = new User(req.body);
+  const comment = new Comment(req.body);
   const id = req.params.id;
   console.log('更新')
   console.log(id);
 
   delete req.body._id
    
-  User.findByIdAndUpdate(id, { $set: req.body}, { new: true }).then(data=>{
+  Comment.findByIdAndUpdate(id, { $set: req.body}, { new: true }).then(data=>{
       res.send(data);
   })
 
@@ -36,7 +36,7 @@ exports.list = function(req, res, next){
             'name': new RegExp(name, 'i')
         }
     }
-    User.paginate(queryCondition, { page: page, limit: limit }, function(err, result) {
+    Comment.paginate(queryCondition, { page: page, limit: limit }, function(err, result) {
         res.json(result)
     });
     
@@ -45,9 +45,9 @@ exports.list = function(req, res, next){
 
 //删除一个用户数据
 exports.remove = function(req, res, next){
-    const user = new User(req.body);
+    const comment = new Comment(req.body);
     // res.json(user);
-    User.remove(user).then(data => {
-        res.json(user)
+    Comment.remove(comment).then(data => {
+        res.json(data)
     })
 };

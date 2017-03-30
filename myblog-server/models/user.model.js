@@ -3,6 +3,7 @@ var mongoosePaginate = require('mongoose-paginate');
 var Schema = mongoose.Schema; //利用mongoose下的Schema(架构，模型)
 
 var UserSchema = new Schema({
+
   name:  String,
   password: String,
   mail: String,

@@ -12,11 +12,13 @@ mongoose.connect(mongoUri, {server: {socketOptions: {keepAlive: 1} }});
 mongoose.connection.on('error', () => {
   throw new Error(`unable to connect to db`);
 });
+mongoose.Promise = global.Promise;  
 
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-
+var comment = require('./routes/comment')
+var upload = require('./routes/upload')
 
 var app = express();
 app.use(cors())
@@ -34,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/comment', comment);
+app.use('/upload', upload);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
