@@ -5,7 +5,7 @@ var path = require('path')
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/myuploads')
+    cb(null, 'myuploads')
   },
   filename: function (req, file, cb) {
     cb(null, file.fieldname + '-' + Date.now() + '-' + path.extname(file.originalname))
@@ -14,15 +14,16 @@ var storage = multer.diskStorage({
 
 
 exports.filedata = function(req,res,next){
-    var upload = multer({ storage: storage, fileFilter: function(req, file, callback){
-        callback(null, true)
-    }
- }).single('avatar');
+    var upload = multer({ 
+        storage: storage
+       
+ }).array('avatar', 10);
     upload(req,res,function(err){
+        console.log('file is uploaded')
         res.end('file is uploaded')
     })
 }
-var upload = multer({ dest: 'uploads/' });
+
 
 
 //新建用户

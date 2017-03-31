@@ -15,12 +15,14 @@
     "vue": "^2.2.1",
     "vue-axios": "^2.0.1",
     "vue-base64-file-upload": "^1.0.4",
-    "vue-router": "^2.3.0"
+    "vue-router": "^2.3.0",
+    "vuex": "^2.2.1"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-loader": "^6.0.0",
     "babel-preset-latest": "^6.0.0",
+    "babel-preset-stage-2": "^6.22.0",
     "cross-env": "^3.0.0",
     "crypto-js": "^3.1.9-1",
     "css-loader": "^0.25.0",

@@ -14,11 +14,12 @@ mongoose.connection.on('error', () => {
 });
 mongoose.Promise = global.Promise;  
 
-
+mongoose.set('debug', true)
 var index = require('./routes/index');
 var users = require('./routes/users');
 var comment = require('./routes/comment')
 var upload = require('./routes/upload')
+var cate = require('./routes/cate')
 
 var app = express();
 app.use(cors())
@@ -38,6 +39,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/comment', comment);
 app.use('/upload', upload);
+app.use('/cate', cate);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

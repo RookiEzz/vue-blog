@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const User = require('../models/user.model')
 
+//用户登录
+exports.login = function(req, res, next){
+    const user = new User(req.body);
+    const name = req.body.name;
+    const password = req.body.password;
+    console.log(name, password)
+    // res.json(user);
+    User.findOne({name:name, password: password}).then(data=>{
+        res.json(data)
+    })
+};
+
 //新建用户
 exports.create = function(req, res, next){
     const user = new User(req.body);

@@ -80,7 +80,7 @@ import CryptoJS from "crypto-js"
                 _this.$refs[name].validate((valid) => {
                     if (valid) {
                         console.log('验证通过')
-                        // _this.formValidate.password = CryptoJS.MD5(_this.formValidate.password, { asBytes: true }).toString();
+                        _this.formValidate.password = CryptoJS.MD5(_this.formValidate.password, { asBytes: true }).toString();
                         _this.$http({
                             method: submitMethod,
                             url: submitUrl,
